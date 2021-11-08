@@ -22,6 +22,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding: 16px;
 }
 
 .App-link {
@@ -42,6 +43,9 @@ button{
 }
 
 small{
-  display: flow-root;
-  font-size: .7em;
+    font-size: .7em;
+}
+a{
+  text-decoration: none;
+  color: #61dafb;
 }
