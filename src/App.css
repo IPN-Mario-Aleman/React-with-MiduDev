@@ -7,14 +7,9 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-content   {
-  background-color: #282c34;
+  background-color: #46639e;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -48,4 +43,10 @@ small{
 a{
   text-decoration: none;
   color: #61dafb;
+}
+li{
+  list-style: none;
+}
+ul{
+  padding: 0;
 }

@@ -1,25 +1,41 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
-import ListOfGifs from './components/ListOfGifs'
+import Home from './pages/Home';
+import SearchResults from './pages/SearchResults';
+import Detail from './pages/Detail';
+import Context from './context/StaticContext'
 import {Link, Route} from 'wouter'
+import { GifContextProvider } from './context/GifContext';
 
 function App() {
-  const [keyword, setKeyword] = useState('german')
-
   return (
-    <div className="App">
-      <section className="App-content">
-        <h1>App</h1>
-        <Link to="/gif/Anime">Gifs de Animes</Link>
-        <Link to="/gif/perros">Gifs de perros</Link>
-        <Link to="/gif/gatos">Gifs de gatos</Link>
-        <Link to="/gif/méxico">Gifs de México</Link>
-        <Route
-          component={ListOfGifs}
-          path="/gif/:keyword"
-        />
-      </section>
-    </div>
+    <Context.Provider value={{
+      name: 'Mario',
+      status: true
+    }}>
+      <div className="App">
+        <section className="App-content">
+          <h1>App</h1>
+          <Link to="/">
+            <img className="Logo" alt="Giffy Logo" src='/logo.jpg'/>
+          </Link>
+          <GifContextProvider>
+            <Route
+              component={Home}
+              path="/"
+            />
+            <Route
+              component={SearchResults}
+              path="/search/:keyword"
+            />
+            <Route
+              component={Detail}
+              path="/gif/:id"
+            />
+          </GifContextProvider>
+        </section>
+      </div>
+    </Context.Provider>
   );
 }
 
