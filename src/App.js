@@ -15,9 +15,11 @@ function App() {
     }}>
       <div className="App">
         <section className="App-content">
-          <h1>App</h1>
+          <h1>Giphy App</h1>
           <Link to="/">
-            <img className="Logo" alt="Giffy Logo" src='/logo.jpg'/>
+            <figure className="App-logo">
+              <img alt='Giffy logo' src='/logo.png' />
+            </figure>
           </Link>
           <GifContextProvider>
             <Route
