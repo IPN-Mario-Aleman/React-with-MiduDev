@@ -5,6 +5,7 @@ import { useGifs } from "hooks/useGifs";
 import useNearScreen from "hooks/useNearScreen";
 import debounce from 'just-debounce-it'
 import useTitle from "hooks/useSeo";
+import { Helmet } from "react-helmet";
 
 export default function SearchResults ({params}) {
     const { keyword } = params
@@ -32,6 +33,10 @@ export default function SearchResults ({params}) {
         {loading
             ? <Spinner />
             : <>
+                <Helmet>{title}
+                    <meta name="description" content={title}></meta>
+                    <meta name="rating" content="General"/>
+                </Helmet>
                 <h3 className="App-title">{decodeURI(keyword)}</h3>
                 <ListOfGifs gifs={gifs} />
                 <div id="visor" ref={externalRef}></div>
