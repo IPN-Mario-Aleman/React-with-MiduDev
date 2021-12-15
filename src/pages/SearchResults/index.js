@@ -4,7 +4,6 @@ import ListOfGifs from "components/ListOfFGifs";
 import { useGifs } from "hooks/useGifs";
 import useNearScreen from "hooks/useNearScreen";
 import debounce from 'just-debounce-it'
-import useTitle from "hooks/useSeo";
 import { Helmet } from "react-helmet";
 
 export default function SearchResults ({params}) {
@@ -17,7 +16,7 @@ export default function SearchResults ({params}) {
         once: false
     })
     const title = gifs ? `${gifs.length} resultados de ${keyword}` : ''
-    useTitle({title})
+    
     
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const debounceHandleNextPage = useCallback(debounce(
