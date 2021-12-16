@@ -2,6 +2,7 @@ import React from 'react'
 import { useLocation } from 'wouter';
 import css from "./SearchForm.module.css"
 import useForm from './hook';
+import Button from 'components/Button'
 
 const RATINGS = ['g', 'pg', 'pg-13', 'r']
 
@@ -49,7 +50,7 @@ function SearchForm({initialKeyword = '', initialRating = 'g' }){
     return (
         <>
             <form onSubmit={handleSubmit} className={css["c-search"]}>
-                <button>Buscar</button>
+                <Button>Buscar</Button>
                 <input
                     className={css["c-search-input"]}
                     placeholder="Search a gif here..."
@@ -65,7 +66,7 @@ function SearchForm({initialKeyword = '', initialRating = 'g' }){
                         <option key={rating}>{rating}</option>
                     ))}
                 </select>
-                <small>{times}</small>
+                {/*<small>{times}</small>*/}
             </form>
         </> 
     )

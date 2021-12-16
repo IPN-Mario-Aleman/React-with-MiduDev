@@ -30,18 +30,25 @@ export default function SearchResults ({params}) {
     
 
     return <>
-        {loading
-            ? <Spinner />
-            : <>
-                <Helmet>{title}
-                    <meta name="description" content={title}></meta>
-                    <meta name="rating" content="General"/>
-                </Helmet>
-                <SearchForm initialKeyword={keyword} initialRating={rating}/>
-                <h3 className="App-title">{decodeURI(keyword)}</h3>
-                <ListOfGifs gifs={gifs} />
-                <div id="visor" ref={externalRef}></div>
-            </>
-        }        
-    </>    
+    {loading
+      ? <Spinner />
+      : <>
+        <Helmet>
+          <title>{title}</title>
+          <meta name="description" content={title} />
+          <meta name="rating" content="General" />
+        </Helmet>
+        <header className="o-header">
+          <SearchForm initialKeyword={keyword} initialRating={rating} />
+        </header>
+        <div className="App-wrapper">
+          <h3 className="App-title">
+            {decodeURI(keyword)}
+          </h3>
+          <ListOfGifs gifs={gifs} />
+          <div id="visor" ref={externalRef}></div>
+        </div>
+      </>
+    }
+  </>
 }

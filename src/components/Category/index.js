@@ -1,6 +1,11 @@
 import React from 'react'
 import {Link} from 'wouter'
-
+/*import {
+    CategoryTitle,
+    CategoryListItem,
+    CategoryLink,
+    CategoryList,
+  } from "./styles";*/
 import './Category.css'
 
 export default function Category({name, options = [], ...props}){

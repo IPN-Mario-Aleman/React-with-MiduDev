@@ -3,14 +3,11 @@ import Gif from '../../components/Gif'
 import useSingleGif from "hooks/useSingleGif";
 import Spinner from "components/Spinner";
 import { Redirect } from "wouter";
-import useSEO from "hooks/useSeo";
 import {Helmet} from "react-helmet";
 
 export default function Detail({params}){
     const {gif, isLoading, isError} = useSingleGif({id: params.id})
     const title = gif ? gif.title : ''
-
-
 
     if(isLoading) {
         return (
